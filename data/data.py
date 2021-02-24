@@ -21,7 +21,7 @@ def process_data(train, test, lags):
         y_test: ndarray.
         scaler: StandardScaler.
     """
-    attr = 'Lane 1 Flow (Veh/5 Minutes)'
+    attr = 'Congestion'
     df1 = pd.read_csv(train, encoding='utf-8').fillna(0)
     df2 = pd.read_csv(test, encoding='utf-8').fillna(0)
 
