@@ -81,7 +81,8 @@ def plot_results(y_true, y_preds, names):
 
     ax.plot(x, y_true, label='True Data')
     for name, y_pred in zip(names, y_preds):
-        ax.plot(x, y_pred, label=name)
+        if name == 'LSTM':
+            ax.plot(x, y_pred, label=name)
 
     plt.legend()
     plt.grid(True)
@@ -105,8 +106,8 @@ def main():
     lag = 12
     # file1 = 'data/train.csv'
     # file2 = 'data/test.csv'
-    file1 = 'data/train/1#Gulshan 1 - Gulshan 2#Alt_train.csv'
-    file2 = 'data/test/1#Gulshan 1 - Gulshan 2#Alt_test.csv'
+    file1 = 'data/train/11#Shabagh - Bangla Motor#Str_train.csv'
+    file2 = 'data/test/11#Shabagh - Bangla Motor#Str_test.csv'
     _, _, X_test, y_test, scaler = process_data(file1, file2, lag)
     y_test = scaler.inverse_transform(y_test.reshape(-1, 1)).reshape(1, -1)[0]
 
